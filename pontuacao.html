@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    
+    <title>Pontuações</title>
+	<script>
+		function teste(){
+			jogadores = JSON.parse(localStorage.getItem("Jogadores"))
+			if(jogadores != null){
+				var tabela = document.getElementById("tabela")
+				
+				for(var i=0; i<jogadores.length; i++){
+					var tr = document.createElement("tr")
+					
+					var th = document.createElement("th")
+					th.innerHTML = (i+1)
+					tr.appendChild(th);
+					
+					var tdNome = document.createElement("td")
+					tdNome.innerHTML = jogadores[i].nome
+					tr.appendChild(tdNome);
+					
+					var tdTurma = document.createElement("td")
+					tdTurma.innerHTML = jogadores[i].turma
+					tr.appendChild(tdTurma);
+					
+					var tdPontuacao = document.createElement("td")
+					tdPontuacao.innerHTML = jogadores[i].pontuacao
+					tr.appendChild(tdPontuacao);
+								
+					tabela.appendChild(tr)
+				}
+			}	
+		}
+	</script>
+  </head>
+  <body>
+		<input type="submit" value="Pontuacao" onclick="teste()">
+		<h1>Pontuações</h1>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+				  <th scope="col">#</th>
+				  <th scope="col">Nome</th>
+				  <th scope="col">Turma</th>
+				  <th scope="col">Pontuação</th>
+				</tr>
+			</thead>
+			<tbody id="tabela">
+			
+			</tbody>
+		</table>
+  </body>
+</html>
